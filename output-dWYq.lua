@@ -858,13 +858,13 @@ function library:CreateWindow(windowInfo)
 			local block = Instance.new("Frame")
 			local UIStroke = Instance.new("UIStroke")
 
-			slider.Name = sliderInfo.Name
+			slider.Name = "slider"
 			slider.Parent = frame
 			slider.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 			slider.BackgroundTransparency = 1.000
 			slider.ClipsDescendants = true
 			slider.Position = UDim2.new(-1.05128983e-07, 0, 0.971491575, 0)
-			slider.Size = UDim2.new(0.976000011, 0, 0.127000004, 0)
+			slider.Size = UDim2.new(0.966585517, 0, 0.127000004, 0)
 
 			UICorner.CornerRadius = UDim.new(0, 3)
 			UICorner.Parent = slider
@@ -872,9 +872,9 @@ function library:CreateWindow(windowInfo)
 			resetButton.Name = "resetButton"
 			resetButton.Parent = slider
 			resetButton.AnchorPoint = Vector2.new(0.5, 0.5)
-			resetButton.BackgroundColor3 = sliderInfo.Color
+			resetButton.BackgroundColor3 = Color3.fromRGB(64, 136, 253)
 			resetButton.Position = UDim2.new(0.890250027, 0, 0.500000119, 0)
-			resetButton.Size = UDim2.new(0.18250002, 0, 0.600000024, 0)
+			resetButton.Size = UDim2.new(0.182500005, 0, 0.600000024, 0)
 			resetButton.AutoButtonColor = false
 			resetButton.Font = Enum.Font.GothamMedium
 			resetButton.Text = "Reset"
@@ -884,7 +884,7 @@ function library:CreateWindow(windowInfo)
 			UICorner_2.CornerRadius = UDim.new(0, 5)
 			UICorner_2.Parent = resetButton
 
-			sliderSlider.Name = "slider"
+			sliderSlider.Name = "sliderSlider"
 			sliderSlider.Parent = slider
 			sliderSlider.AnchorPoint = Vector2.new(0, 0.5)
 			sliderSlider.BackgroundColor3 = Color3.fromRGB(14, 16, 27)
@@ -901,9 +901,9 @@ function library:CreateWindow(windowInfo)
 			move.Name = "move"
 			move.Parent = sliderSlider
 			move.AnchorPoint = Vector2.new(0, 0.5)
-			move.BackgroundColor3 = sliderInfo.Color
+			move.BackgroundColor3 = Color3.fromRGB(64, 136, 253)
 			move.Position = UDim2.new(0.0010000316, 0, 0.500001132, 0)
-			move.Size = UDim2.new(0.438121945, 0, 0.984799504, 0)
+			move.Size = UDim2.new(0.438121915, 0, 0.984799445, 0)
 			move.AutoButtonColor = false
 			move.Font = Enum.Font.SourceSans
 			move.Text = ""
@@ -919,9 +919,9 @@ function library:CreateWindow(windowInfo)
 			text.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 			text.BackgroundTransparency = 1.000
 			text.Position = UDim2.new(0.0329999998, 0, 0.5, 0)
-			text.Size = UDim2.new(0.967000008, 0, 0.800000012, 0)
+			text.Size = UDim2.new(0.967000067, 0, 0.800000012, 0)
 			text.Font = Enum.Font.GothamMedium
-			text.Text = sliderInfo.ValueName
+			text.Text = "Slider"
 			text.TextColor3 = Color3.fromRGB(255, 255, 255)
 			text.TextSize = 18.000
 			text.TextWrapped = true
