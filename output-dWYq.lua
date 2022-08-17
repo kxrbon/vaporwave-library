@@ -10,6 +10,7 @@ local function generateName()
 end
 
 function draggable(obj)
+	print("e")
 	local globals = {}
 	globals.dragging = nil
 	globals.uiorigin = nil
