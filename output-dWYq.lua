@@ -290,6 +290,7 @@ function library:CreateWindow(windowInfo)
 	selectors.Size = UDim2.new(0.973500013, 0, 0.775180042, 0)
 	selectors.ScrollBarThickness = 0
 	selectors.CanvasSize = UDim2.new(0, 0, 0, 0)
+	selectors.AutomaticCanvasSize = "Y"
 
 	UIPadding.Parent = selectors
 	UIPadding.PaddingLeft = UDim.new(0, 2)
@@ -970,6 +971,7 @@ function library:CreateWindow(windowInfo)
 		frame.CanvasSize = UDim2.new(0, 0, 0, 0)
 		frame.ScrollBarThickness = 4
 		frame.Visible = false
+		frame.AutomaticCanvasSize = "Y"
 
 		UIListLayout.Parent = frame
 		UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
@@ -978,8 +980,6 @@ function library:CreateWindow(windowInfo)
 		UIPadding.Parent = frame
 		UIPadding.PaddingLeft = UDim.new(0, 2)
 		UIPadding.PaddingTop = UDim.new(0, 2)	
-		
-		selectors.CanvasSize = UDim2.new(0, 0, 0, (UIListLayout.AbsoluteContentSize.Y) / 100)
 --[[
 		selectors.MouseEnter:Connect(function()
 			selectors.ScrollBarThickness = 4
@@ -1180,7 +1180,6 @@ function library:CreateWindow(windowInfo)
 				end
 			end)
 		end
-		frame.CanvasSize = UDim2.new(0, 0, 0, (UIListLayout.AbsoluteContentSize.Y) / 100)
 
 		local buttonInfo = {
 			Name = "",
@@ -1242,8 +1241,6 @@ function library:CreateWindow(windowInfo)
 			UIStroke.Color = Color3.fromRGB(25, 30, 50)
 			UIStroke.ApplyStrokeMode = "Border"
 			UIStroke.Parent = button
-			
-			frame.CanvasSize = UDim2.new(0, 0, 0, (UIListLayout.AbsoluteContentSize.Y) / 100)
 
 			buttonButton.MouseButton1Click:Connect(function()
 				buttonInfo.Callback(buttonButton)
@@ -1328,24 +1325,21 @@ function library:CreateWindow(windowInfo)
 			UIStroke.Color = Color3.fromRGB(25, 30, 50)
 			UIStroke.ApplyStrokeMode = "Border"
 			UIStroke.Parent = dropdown
-			
-			frame.CanvasSize = UDim2.new(0, 0, 0, (UIListLayout.AbsoluteContentSize.Y) / 100)
 
 			local open = false
 
 			openButton.MouseButton1Click:Connect(function()
+				frame.AutomaticCanvasSize = "Y"
 				if open == false then
 					options:TweenSize(UDim2.new(1, 0, 2, 0), nil, nil, .25)
 					local tween7 = ts:Create(openButton, TweenInfo.new(0.25), {Rotation = -90})
 					tween7:Play()
 					open = true
-					frame.CanvasSize = UDim2.new(0, 0, 0, (UIListLayout.AbsoluteContentSize.Y) / 100)
 				else
 					options:TweenSize(UDim2.new(1, 0, 0, 0), nil, nil, .25)
 					local tween8 = ts:Create(openButton, TweenInfo.new(0.25), {Rotation = 0})
 					tween8:Play()
 					open = false
-					frame.CanvasSize = UDim2.new(0, 0, 0, (UIListLayout.AbsoluteContentSize.Y) / 100)
 				end
 			end)
 		end
@@ -1456,8 +1450,6 @@ function library:CreateWindow(windowInfo)
 			UIStroke.Color = Color3.fromRGB(25, 30, 50)
 			UIStroke.ApplyStrokeMode = "Border"
 			UIStroke.Parent = slider
-			
-			frame.CanvasSize = UDim2.new(0, 0, 0, (UIListLayout.AbsoluteContentSize.Y) / 100)
 			
 			local minvalue = sliderInfo.Min or 0
 			local maxvalue = sliderInfo.Max or 100
