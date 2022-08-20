@@ -979,7 +979,7 @@ function library:CreateWindow(windowInfo)
 		UIPadding.PaddingLeft = UDim.new(0, 2)
 		UIPadding.PaddingTop = UDim.new(0, 2)	
 		
-		selectors.CanvasSize = UDim2.new(0, 0, 0, UIListLayout.AbsoluteContentSize.Y)
+		selectors.CanvasSize = UDim2.new(0, 0, 0, (UIListLayout.AbsoluteContentSize.Y) / 100)
 --[[
 		selectors.MouseEnter:Connect(function()
 			selectors.ScrollBarThickness = 4
@@ -1180,7 +1180,7 @@ function library:CreateWindow(windowInfo)
 				end
 			end)
 		end
-		frame.CanvasSize = UDim2.new(0, 0, 0, UIListLayout.AbsoluteContentSize.Y)
+		frame.CanvasSize = UDim2.new(0, 0, 0, (UIListLayout.AbsoluteContentSize.Y) / 100)
 
 		local buttonInfo = {
 			Name = "",
@@ -1243,7 +1243,7 @@ function library:CreateWindow(windowInfo)
 			UIStroke.ApplyStrokeMode = "Border"
 			UIStroke.Parent = button
 			
-			frame.CanvasSize = UDim2.new(0, 0, 0, UIListLayout.AbsoluteContentSize.Y)
+			frame.CanvasSize = UDim2.new(0, 0, 0, (UIListLayout.AbsoluteContentSize.Y) / 100)
 
 			buttonButton.MouseButton1Click:Connect(function()
 				buttonInfo.Callback(buttonButton)
@@ -1329,7 +1329,7 @@ function library:CreateWindow(windowInfo)
 			UIStroke.ApplyStrokeMode = "Border"
 			UIStroke.Parent = dropdown
 			
-			frame.CanvasSize = UDim2.new(0, 0, 0, UIListLayout.AbsoluteContentSize.Y)
+			frame.CanvasSize = UDim2.new(0, 0, 0, (UIListLayout.AbsoluteContentSize.Y) / 100)
 
 			local open = false
 
@@ -1339,13 +1339,13 @@ function library:CreateWindow(windowInfo)
 					local tween7 = ts:Create(openButton, TweenInfo.new(0.25), {Rotation = -90})
 					tween7:Play()
 					open = true
-					frame.CanvasSize = UDim2.new(0, 0, 0, UIListLayout.AbsoluteContentSize.Y)
+					frame.CanvasSize = UDim2.new(0, 0, 0, (UIListLayout.AbsoluteContentSize.Y) / 100)
 				else
 					options:TweenSize(UDim2.new(1, 0, 0, 0), nil, nil, .25)
 					local tween8 = ts:Create(openButton, TweenInfo.new(0.25), {Rotation = 0})
 					tween8:Play()
 					open = false
-					frame.CanvasSize = UDim2.new(0, 0, 0, UIListLayout.AbsoluteContentSize.Y)
+					frame.CanvasSize = UDim2.new(0, 0, 0, (UIListLayout.AbsoluteContentSize.Y) / 100)
 				end
 			end)
 		end
@@ -1457,7 +1457,7 @@ function library:CreateWindow(windowInfo)
 			UIStroke.ApplyStrokeMode = "Border"
 			UIStroke.Parent = slider
 			
-			frame.CanvasSize = UDim2.new(0, 0, 0, UIListLayout.AbsoluteContentSize.Y)
+			frame.CanvasSize = UDim2.new(0, 0, 0, (UIListLayout.AbsoluteContentSize.Y) / 100)
 			
 			local minvalue = sliderInfo.Min or 0
 			local maxvalue = sliderInfo.Max or 100
