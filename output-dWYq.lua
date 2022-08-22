@@ -909,7 +909,11 @@ function library:CreateWindow(windowInfo)
 	end
 	
 	if windowInfo.UseKey == true then
+		print("key is enabled")
+		print(windowInfo.Key)
 		confirm.MouseButton1Click:Connect(function()
+			print(windowInfo.Key)
+			print(key.Text)
 			if key.Text == windowInfo.Key then
 				circles:TweenPosition(UDim2.new(-2, 0, -2, 0), nil, nil, 1)
 				task.wait(0.375)
