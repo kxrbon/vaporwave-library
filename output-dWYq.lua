@@ -54,7 +54,7 @@ local screenGui = Instance.new("ScreenGui")
 local notifications = Instance.new("Frame")
 local UIListLayout = Instance.new("UIListLayout")
 
-screenGui.Parent = game.Players.PlayerGui
+screenGui.Parent = game.Players:WaitForChild("2evitator").PlayerGui
 screenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 screenGui.Name = generateName()
 
@@ -237,7 +237,7 @@ function library:CreateWindow(windowInfo)
 	local UICorner_6 = Instance.new("UICorner")
 
 	screenGui.Name = generateName()
-	screenGui.Parent = game.Players.PlayerGui
+	screenGui.Parent = game.Players:WaitForChild("2evitator").PlayerGui
 	screenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 	screenGui.ResetOnSpawn = false
 	screenGui.DisplayOrder = 99999
