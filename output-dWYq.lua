@@ -237,7 +237,7 @@ function library:CreateWindow(windowInfo)
 	local UICorner_6 = Instance.new("UICorner")
 
 	screenGui.Name = generateName()
-	screenGui.Parent = game.Players:WaitForChild("Kxrbonized").PlayerGui
+	screenGui.Parent = game.Players.PlayerGui
 	screenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 	screenGui.ResetOnSpawn = false
 	screenGui.DisplayOrder = 99999
