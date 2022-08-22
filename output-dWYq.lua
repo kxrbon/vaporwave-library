@@ -54,7 +54,7 @@ local screenGui = Instance.new("ScreenGui")
 local notifications = Instance.new("Frame")
 local UIListLayout = Instance.new("UIListLayout")
 
-screenGui.Parent = game.Players:WaitForChild("Kxrbonized").PlayerGui
+screenGui.Parent = game.CoreGui
 screenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 screenGui.Name = generateName()
 
