@@ -941,11 +941,16 @@ function library:CreateWindow(windowInfo)
 		loginPage:Destroy()
 	end
 	
-	while loginPage:FindFirstChild("circles") ~= nil do
-		circles:TweenPosition(UDim2.new(0.044, 0, 0.174, 0), nil, nil, 4)
-		task.wait(5)
-		circles:TweenPosition(UDim2.new(1, 0, 0.971, 0), nil, nil, 4)
-		task.wait(5)
+	while true do
+		if loginPage:FindFirstChild("circles") ~= nil then
+			circles:TweenPosition(UDim2.new(0.044, 0, 0.174, 0), nil, nil, 4)
+			task.wait(5)
+			circles:TweenPosition(UDim2.new(1, 0, 0.971, 0), nil, nil, 4)
+			task.wait(5)
+			continue
+		else
+			break
+		end
 	end
 
 	-- shrinking anim
