@@ -909,9 +909,8 @@ function library:CreateWindow(windowInfo)
 	end
 	
 	if windowInfo.UseKey == true then
-		_G.wG8P0NxaggfkpoQQCqc5LcKPWy4gwmgjW5nXL647UeUMqsP4mDtoqXpXzNfbyL2WJ = windowInfo.Key
 		confirm.MouseButton1Click:Connect(function()
-			if key.Text == _G.wG8P0NxaggfkpoQQCqc5LcKPWy4gwmgjW5nXL647UeUMqsP4mDtoqXpXzNfbyL2WJ then
+			if key.Text == windowInfo.Key then
 				circles:TweenPosition(UDim2.new(-2, 0, -2, 0), nil, nil, 1)
 				task.wait(0.375)
 				sub:TweenPosition(UDim2.new(0.5, 0, 0.55, 0), Enum.EasingDirection.InOut, Enum.EasingStyle.Linear, 0.1)
