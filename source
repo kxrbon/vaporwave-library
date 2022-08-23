@@ -901,9 +901,11 @@ function library:CreateWindow(windowInfo)
 	UIStroke_5.ApplyStrokeMode = "Border"
 	UIStroke_5.Parent = key
 	
+	local authenticated = false
 	if windowInfo.UseKey == true then
 		confirm.MouseButton1Click:Connect(function()
 			if key.Text == windowInfo.Key then
+				authenticated = true
 				ts:Create(glow, TweenInfo.new(0.25), {ImageColor3 = Color3.fromRGB(34, 255, 122)}):Play()
 				ts:Create(confirm, TweenInfo.new(0.25), {BackgroundColor3 = Color3.fromRGB(34, 255, 122)}):Play()
 				circles:TweenPosition(UDim2.new(-2, 0, -2, 0), nil, nil, 1)
@@ -939,10 +941,11 @@ function library:CreateWindow(windowInfo)
 		end)
 	else
 		loginPage:Destroy()
+		authenticated = true
 	end
 	
 	while true do
-		if circles ~= nil then
+		if authenticated == false then
 			circles:TweenPosition(UDim2.new(0.044, 0, 0.174, 0), nil, nil, 4)
 			task.wait(5)
 			circles:TweenPosition(UDim2.new(1, 0, 0.971, 0), nil, nil, 4)
@@ -1560,7 +1563,7 @@ function library:CreateWindow(windowInfo)
 
 			resetButton.MouseButton1Click:Connect(function()
 				Value = sliderInfo.Default
-				move.Size = UDim2.new(0, math.clamp(mouse.X - move.AbsolutePosition.X, 0, 300), 1, 0)
+				move.Size = UDim2.new(0, math.clamp(mouse.X - move.AbsolutePosition.X, 0, 50), 1, 0)
 				sliderInfo.Callback(Value)
 			end)
 		end
