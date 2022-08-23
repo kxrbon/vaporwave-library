@@ -942,7 +942,7 @@ function library:CreateWindow(windowInfo)
 	end
 	
 	while true do
-		if holder:FindFirstChild("loginPage") ~= nil then
+		if circles ~= nil then
 			circles:TweenPosition(UDim2.new(0.044, 0, 0.174, 0), nil, nil, 4)
 			task.wait(5)
 			circles:TweenPosition(UDim2.new(1, 0, 0.971, 0), nil, nil, 4)
@@ -1560,7 +1560,7 @@ function library:CreateWindow(windowInfo)
 
 			resetButton.MouseButton1Click:Connect(function()
 				Value = sliderInfo.Default
-				move.Size = UDim2.new(0, math.clamp(mouse.X - move.AbsolutePosition.X, 0, 50), 1, 0)
+				move.Size = UDim2.new(0, math.clamp(mouse.X - move.AbsolutePosition.X, 0, 300), 1, 0)
 				sliderInfo.Callback(Value)
 			end)
 		end
