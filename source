@@ -944,17 +944,12 @@ function library:CreateWindow(windowInfo)
 		authenticated = true
 	end
 	
-	while true do
-		if authenticated == false then
-			circles:TweenPosition(UDim2.new(0.044, 0, 0.174, 0), nil, nil, 4)
-			task.wait(5)
-			circles:TweenPosition(UDim2.new(1, 0, 0.971, 0), nil, nil, 4)
-			task.wait(5)
-			continue
-		else
-			break
-		end
-	end
+	repeat
+		circles:TweenPosition(UDim2.new(0.044, 0, 0.174, 0), nil, nil, 4)
+		task.wait(5)
+		circles:TweenPosition(UDim2.new(1, 0, 0.971, 0), nil, nil, 4)
+		task.wait(5)
+	until authenticated == true
 
 	-- shrinking anim
 
