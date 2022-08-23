@@ -1535,6 +1535,7 @@ function library:CreateWindow(windowInfo)
 
 			sliderSlider.MouseButton1Down:Connect(function()
 				Value = math.floor((((tonumber(maxvalue) - tonumber(minvalue)) / 425) * move.AbsoluteSize.X) + tonumber(minvalue)) or 0
+				move.Parent.text.Text = sliderInfo.ValueName..Value
 				pcall(function()
 					sliderInfo.Callback(Value)
 				end)
