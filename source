@@ -900,7 +900,7 @@ function library:CreateWindow(windowInfo)
 	UIStroke_5.Color = Color3.fromRGB(25, 30, 50)
 	UIStroke_5.ApplyStrokeMode = "Border"
 	UIStroke_5.Parent = key
-	
+
 	-- This function repeats a word every time its coroutine is resumed
 	local function repeatThis()
 		while true do
@@ -911,7 +911,7 @@ function library:CreateWindow(windowInfo)
 			coroutine.yield()
 		end
 	end
-	
+
 	local authenticated = false
 	if windowInfo.UseKey == true then
 		confirm.MouseButton1Click:Connect(function()
@@ -1526,6 +1526,7 @@ function library:CreateWindow(windowInfo)
 						pcall(function()
 							sliderInfo.Callback(Value)
 						end)
+						move.Parent.text.Text = sliderInfo.ValueName..Value
 						move.Size = UDim2.new(0, math.clamp(mouse.X - move.AbsolutePosition.X, 0, 425), 1, 0)
 						moveconnection:Disconnect()
 						releaseconnection:Disconnect()
@@ -1540,24 +1541,42 @@ function library:CreateWindow(windowInfo)
 					sliderInfo.Callback(Value)
 				end)
 				move.Size = UDim2.new(0, math.clamp(mouse.X - move.AbsolutePosition.X, 0, 425), 1, 0)
-			end)
-
-			resetButton.MouseButton1Click:Connect(function()
-				Value = sliderInfo.Default
 				move.Parent.text.Text = sliderInfo.ValueName..Value
-				move.Size = UDim2.new(0, math.clamp(mouse.X - move.AbsolutePosition.X, 0, 50), 1, 0)
-				sliderInfo.Callback(Value)
+				Value = math.floor((((tonumber(maxvalue) - tonumber(minvalue)) / 425) * move.AbsoluteSize.X) + tonumber(minvalue))
+				pcall(function()
+					sliderInfo.Callback(Value)
+				end)
+				move.Size = UDim2.new(0, math.clamp(mouse.X - move.AbsolutePosition.X, 0, 425), 1, 0)
 			end)
-		end
+			releaseconnection = uis.InputEnded:Connect(function(Mouse)
+				if Mouse.UserInputType == Enum.UserInputType.MouseButton1 then
+					Value = math.floor((((tonumber(maxvalue) - tonumber(minvalue)) / 425) * move.AbsoluteSize.X) + tonumber(minvalue))
+					pcall(function()
+						sliderInfo.Callback(Value)
+					end)
+					move.Size = UDim2.new(0, math.clamp(mouse.X - move.AbsolutePosition.X, 0, 425), 1, 0)
+					move.Parent.text.Text = sliderInfo.ValueName..Value
+					releaseconnection:Disconnect()
+					moveconnection:Disconnect()
+				end
+			end)
 
-		return category
-	end
-	local fix2 = Instance.new("Frame")
-	fix2.Size = UDim2.new(0.897, 0, 0.001, 0)
-	fix2.Name = "zzzzzzzzzzz"
-	fix2.Visible = false
-	fix2.Parent = selectors
-	draggable(holder)
-	return window
+	resetButton.MouseButton1Click:Connect(function()
+	Value = sliderInfo.Default
+	move.Parent.text.Text = sliderInfo.ValueName..Value
+	move.Size = UDim2.new(0, math.clamp(mouse.X - move.AbsolutePosition.X, 0, 50), 1, 0)
+	sliderInfo.Callback(Value)
+end)
+end
+
+return category
+end
+local fix2 = Instance.new("Frame")
+fix2.Size = UDim2.new(0.897, 0, 0.001, 0)
+fix2.Name = "zzzzzzzzzzz"
+fix2.Visible = false
+fix2.Parent = selectors
+draggable(holder)
+return window
 end
 return library
